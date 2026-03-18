@@ -1,0 +1,40 @@
+{
+  "name": "lola-app",
+  "version": "1.0.0",
+  "description": "MCP App to manage Lola marketplaces and modules",
+  "type": "module",
+  "scripts": {
+    "build": "cross-env INPUT=mcp-app.html vite build",
+    "dev": "cross-env NODE_ENV=development concurrently \"cross-env INPUT=mcp-app.html vite build --watch\" \"tsx --watch main.ts\"",
+    "serve": "tsx main.ts",
+    "start": "npm run build && npm run serve"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "^1.2.2",
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "@patternfly/react-core": "^6.4.1",
+    "@patternfly/react-icons": "^6.4.0",
+    "@patternfly/react-styles": "^6.4.0",
+    "@patternfly/react-table": "^6.4.1",
+    "@patternfly/react-tokens": "^6.4.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.7.0",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.1",
+    "vite-plugin-singlefile": "^2.3.0"
+  }
+}
