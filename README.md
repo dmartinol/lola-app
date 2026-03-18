@@ -40,7 +40,6 @@ Runs the app in development mode with hot reload.
 
 | Prompt | Opens UI? | Why |
 |--------|-----------|-----|
-| "Open Lola Manager" | Yes | Model calls `lola-list-markets`, `lola-list-modules`, or `lola-list-installations`; host renders the interactive UI |
 | "Show my Lola modules" | Yes | Model calls `lola-list-modules` to display modules |
 | "Show my Lola installations" | Yes | Model calls `lola-list-installations` to display installations |
 | "Let me manage my Lola skills" | Yes | Model calls list tools for interactive management |
