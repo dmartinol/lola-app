@@ -40,25 +40,44 @@ Runs the app in development mode with hot reload.
 
 | Prompt | Opens UI? | Why |
 |--------|-----------|-----|
-| "Open Lola Manager" | Yes | Model calls `lola-manager`; host renders the interactive UI |
-| "Show my Lola modules" | Yes | Model calls `lola-manager` to display modules and installations |
-| "Let me manage my Lola skills" | Yes | Model calls `lola-manager` for interactive management |
-| "I want to install a new Lola module" | Yes | Model opens the UI so you can search and install |
-| "What Lola modules do I have installed?" | Yes | Model calls `lola-manager`; UI shows the full list |
-| "Search for Lola modules I can install" | Yes | Model opens the UI; use the Search & Install tab |
+| "Open Lola Manager" | Yes | Model calls `lola-list-markets`, `lola-list-modules`, or `lola-list-installations`; host renders the interactive UI |
+| "Show my Lola modules" | Yes | Model calls `lola-list-modules` to display modules |
+| "Show my Lola installations" | Yes | Model calls `lola-list-installations` to display installations |
+| "Let me manage my Lola skills" | Yes | Model calls list tools for interactive management |
+| "I want to install a new Lola module" | Yes | Model opens the UI via `lola-list-modules`; use Search & Install tab |
+| "What Lola modules do I have installed?" | Yes | Model calls `lola-list-installations`; UI shows the full list |
+| "List my Lola marketplaces" | Yes | Model calls `lola-list-markets`; UI shows markets |
 | "What is Lola?" | No | Model answers from knowledge; no tool call needed |
 | "How do I add a Lola marketplace?" | No | Model explains the `lola market add` CLI; no UI |
 
-**Rule of thumb:** Prompts that ask to *view*, *manage*, *search*, or *install* Lola modules will open the UI. Prompts that ask *what* or *how* (explanatory) typically get a text reply without opening the UI.
+**Rule of thumb:** Prompts that ask to *view*, *list*, *manage*, *search*, or *install* Lola resources will open the UI. Prompts that ask *what* or *how* (explanatory) typically get a text reply without opening the UI.
 
 ## Tools
 
-| Tool | Visibility | Description |
-|------|------------|-------------|
-| `lola-manager` | Model | Opens the Lola Manager UI |
-| `lola-refresh` | App only | Refreshes marketplaces, modules, and installations list |
-| `lola-search` | App only | Searches marketplace by query |
-| `lola-install` | App only | Installs a module to an assistant |
+### Model-invokable (opens interactive UI)
+
+| Tool | Description |
+|------|-------------|
+| `lola-list-markets` | List all registered Lola marketplaces with interactive UI |
+| `lola-list-modules` | List modules from registry or a marketplace with interactive UI |
+| `lola-list-installations` | List which modules are installed to which assistants with interactive UI |
+
+### App-only (used by the UI for actions and polling)
+
+| Tool | Description |
+|------|-------------|
+| `lola-add-market` | Add a new marketplace |
+| `lola-inspect-market` | Get marketplace details (URL, enabled, modules) |
+| `lola-remove-market` | Remove a marketplace |
+| `lola-inspect-module` | Get module info (path, skills, commands, agents, MCPs) |
+| `lola-add-module` | Add a module from git URL, zip, tar, or local path |
+| `lola-install-module` | Install a module to an assistant |
+| `lola-remove-modules` | Remove modules from the registry |
+| `lola-uninstall` | Uninstall a module from an assistant |
+| `lola-refresh-markets` | Refresh marketplaces data (for UI polling) |
+| `lola-refresh-modules` | Refresh modules data (for UI polling) |
+| `lola-refresh-installable-modules` | Get modules available to install (for Install modal) |
+| `lola-refresh-installations` | Refresh installations data (for UI polling) |
 
 ## Testing with basic-host
 

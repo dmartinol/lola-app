@@ -17,6 +17,7 @@
 | Inspect market | `lola-inspect-market` | `lola market ls <name>` |
 | Remove market | `lola-remove-market` | `lola market rm` |
 | List modules | `lola-list-modules` | `lola mod ls` / `lola market ls` |
+| Inspect module | `lola-inspect-module` | `lola mod info` |
 | Add module | `lola-add-module` | `lola mod add` |
 | Install module | `lola-install-module` | `lola install` |
 | Remove modules | `lola-remove-modules` | `lola mod rm` |
@@ -54,6 +55,7 @@ See [REQUIREMENTS.md](REQUIREMENTS.md) for the feature index and [specs/](specs/
 | `lola market ls <name>` | Inspect market (URL, enabled, modules) |
 | `lola market rm` | Remove market |
 | `lola mod ls` / `lola market ls <name>` | List modules (registry or market, with UI) |
+| `lola mod info` | Inspect module (path, skills, commands, agents, MCPs) |
 | `lola mod add` | Add module from URL/path |
 | `lola install` | Install module to assistant |
 | `lola mod rm` | Remove modules from registry |
